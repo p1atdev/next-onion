@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+tor/hidden_service/**/hostname
+tor/hidden_service/**/*_key
