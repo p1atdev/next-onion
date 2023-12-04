@@ -10,7 +10,8 @@
 			"nursery": {
 				"noUnusedImports": "error"
 			}
-		}
+		},
+		"ignore": [".next", "node_modules", "tor"]
 	},
 	"formatter": {
 		"enabled": true
