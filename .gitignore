@@ -35,5 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Tor
 tor/hidden_service/**/hostname
 tor/hidden_service/**/*_key
+
+# pandacss
+styled-system
