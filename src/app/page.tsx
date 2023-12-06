@@ -14,6 +14,7 @@ export default function Home() {
 			<div
 				className={vstack({
 					my: "auto",
+					gap: "8"
 				})}
 			>
 				<p
@@ -36,7 +37,18 @@ export default function Home() {
 					Welcome to Underground
 				</p>
 
+
 				<Counter />
+
+				<a href="https://zenn.dev/platina/articles/884ddadda3cf3a">
+					<p className={css({
+						color: "green.300",
+						fontSize: "2xl",
+						textDecoration: "underline",
+					})}>
+						参照: Next.js ウェブサイトを Docker を使って Tor に公開してみる
+					</p>
+				</a>
 			</div>
 		</main>
 	);
