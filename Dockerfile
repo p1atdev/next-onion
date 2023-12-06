@@ -15,9 +15,9 @@ COPY ./tor/hidden_service /app/tor/hidden_service
 
 # Installing pnpm
 FROM base AS deps
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json pnpm-lock.yaml* panda.config.ts ./
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 # Building Next.js
 FROM deps AS build
@@ -30,6 +30,7 @@ COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/public /app/public
 COPY --from=build /app/.next /app/.next
 COPY --from=build /app/next.config.js /app
+COPY --from=build /app/postcss.config.*s /app
 
 RUN chmod 700 /app/tor/hidden_service
 
@@ -40,6 +41,7 @@ FROM deps AS dev
 
 COPY next.config.js /app
 COPY tsconfig.json /app
+COPY postcss.config.*s /app
 
 RUN chmod 700 /app/tor/hidden_service
 
